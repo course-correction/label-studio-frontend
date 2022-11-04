@@ -743,7 +743,7 @@ export default observer(
               ref={ref => {
                 item.setStageRef(ref);
               }}
-              style={{ position: "absolute", top: 0, left: 0 }}
+              style={{ position: "absolute", top: 0, left: 0, touchAction: "none" }}
               className={"image-element"}
               width={item.stageComponentSize.width}
               height={item.stageComponentSize.height}
@@ -755,20 +755,20 @@ export default observer(
               offsetY={item.stageTranslate.y}
               rotation={item.rotation}
               onClick={this.handleOnClick}
-              onMouseEnter={() => {
+              onPointerEnter={() => {
                 if (this.crosshairRef.current) {
                   this.crosshairRef.current.updateVisibility(true);
                 }
               }}
-              onMouseLeave={() => {
+              onPointerLeave={() => {
                 if (this.crosshairRef.current) {
                   this.crosshairRef.current.updateVisibility(false);
                 }
               }}
               onDragMove={this.updateCrosshair}
-              onMouseDown={this.handleMouseDown}
-              onMouseMove={this.handleMouseMove}
-              onMouseUp={this.handleMouseUp}
+              onPointerDown={this.handleMouseDown}
+              onPointerMove={this.handleMouseMove}
+              onPointerUp={this.handleMouseUp}
               onWheel={item.zoom ? this.handleZoom : () => {}}
             >
               {/* Hack to keep stage in place when there's no regions */}
