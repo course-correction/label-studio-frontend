@@ -920,12 +920,12 @@ export default observer(
                 offsetY={item.stageTranslate.y}
                 rotation={item.rotation}
                 onClick={this.handleOnClick}
-                onMouseEnter={() => {
+                onPointerEnter={() => {
                   if (this.crosshairRef.current) {
                     this.crosshairRef.current.updateVisibility(true);
                   }
                 }}
-                onMouseLeave={(e) => {
+                onPointerLeave={(e) => {
                   if (this.crosshairRef.current) {
                     this.crosshairRef.current.updateVisibility(false);
                   }
@@ -947,9 +947,9 @@ export default observer(
                   this.handleMouseMove(newEvent);
                 }}
                 onDragMove={this.updateCrosshair}
-                onMouseDown={this.handleMouseDown}
-                onMouseMove={this.handleMouseMove}
-                onMouseUp={this.handleMouseUp}
+                onPointerDown={this.handleMouseDown}
+                onPointerMove={this.handleMouseMove}
+                onPointerUp={this.handleMouseUp}
                 onWheel={item.zoom ? this.handleZoom : () => {
                 }}
               >
